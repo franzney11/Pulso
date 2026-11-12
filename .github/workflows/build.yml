@@ -1,0 +1,37 @@
+name: Compilar para Windows
+
+# Se ejecuta a mano (Actions → Compilar para Windows → Run workflow)
+# y también al subir una etiqueta tipo v0.1.0, que además publica una Release con los .exe.
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pulso-windows
+          path: |
+            dist/Pulso-Setup-*.exe
+            dist/Pulso-Portable-*.exe
+      - name: Publicar Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/Pulso-Setup-*.exe
+            dist/Pulso-Portable-*.exe

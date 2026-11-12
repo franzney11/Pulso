@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'">
+  <title>Pulso</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <div class="brand">
+      <img src="assets/icon.png" alt="" width="26" height="26">
+      <span>Pulso</span>
+    </div>
+
+    <header class="topbar">
+      <div class="machine" id="machine"></div>
+      <div class="top-actions">
+        <span id="demo-badge" class="chip chip--ice" hidden>Modo demo: datos de ejemplo</span>
+        <button class="btn" id="btn-rescan" type="button">Volver a leer</button>
+        <button class="btn" id="btn-export" type="button">Exportar informe</button>
+      </div>
+    </header>
+
+    <nav class="rail" id="nav" aria-label="Secciones"></nav>
+
+    <main class="main" id="main" tabindex="-1">
+      <div id="banners"></div>
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

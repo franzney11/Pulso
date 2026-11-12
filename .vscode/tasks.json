@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Instalar dependencias", "type": "shell", "command": "npm install", "problemMatcher": [] },
+    { "label": "Tests", "type": "shell", "command": "npm test", "group": "test", "problemMatcher": [] },
+    { "label": "Diagnóstico del PC (probe)", "type": "shell", "command": "npm run probe", "problemMatcher": [] },
+    { "label": "Compilar instalador + portable", "type": "shell", "command": "npm run dist", "group": "build", "problemMatcher": [] }
+  ]
+}

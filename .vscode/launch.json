@@ -1,0 +1,36 @@
+{
+  // F5 en VS Code: arranca Pulso con el depurador conectado al proceso principal.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Pulso (lee tu PC)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": { "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd" },
+      "args": ["."],
+      "outputCapture": "std"
+    },
+    {
+      "name": "Pulso (modo demo)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": { "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd" },
+      "args": [".", "--demo"],
+      "outputCapture": "std"
+    },
+    {
+      "name": "Pulso (demo con CPU overclockeada + DevTools)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": { "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd" },
+      "args": [".", "--demo-oc", "--dev"],
+      "outputCapture": "std"
+    }
+  ]
+}
